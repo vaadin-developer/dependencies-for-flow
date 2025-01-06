@@ -23,30 +23,29 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.rapidpm</groupId>
-    <artifactId>rapidpm-dependencies</artifactId>
-    <version>04.07.05-136</version>
+    <groupId>com.svenruppert</groupId>
+    <artifactId>dependencies</artifactId>
+    <version>06.00.00</version>
   </parent>
 
-  <groupId>org.rapidpm.vaadin</groupId>
-  <artifactId>rapidpm-vaadin-dependencies-v14</artifactId>
+  <artifactId>dependencies-for-flow</artifactId>
   <packaging>pom</packaging>
-  <version>05.00.03</version>
+  <version>06.00.00</version>
 
   <inceptionYear>2018</inceptionYear>
   <organization>
     <name>Sven Ruppert</name>
     <url>https://github.com/svenruppert</url>
   </organization>
-  <url>https://github.com/vaadin-developer/dependencies-for-v14</url>
+  <url>https://github.com/vaadin-developer/dependencies-for-flow</url>
 
   <scm>
-    <url>https://github.com/vaadin-developer/dependencies-for-v14</url>
+    <url>https://github.com/vaadin-developer/dependencies-for-flow</url>
     <connection>
-      scm:git:https://github.com/vaadin-developer/dependencies-for-v14.git
+      scm:git:https://github.com/vaadin-developer/dependencies-for-flow.git
     </connection>
     <developerConnection>
-      scm:git:https://github.com/vaadin-developer/dependencies-for-v14.git
+      scm:git:https://github.com/vaadin-developer/dependencies-for-flow.git
     </developerConnection>
     <tag>HEAD</tag>
   </scm>
@@ -63,7 +62,7 @@
   <issueManagement>
     <system>Github</system>
     <url>
-      https://github.com/vaadin-developer/dependencies-for-v14/issues
+      https://github.com/vaadin-developer/dependencies-for-flow/issues
     </url>
   </issueManagement>
   <licenses>
@@ -77,60 +76,11 @@
 
   <properties>
     <!--technical-->
-    <jdk.version>1.8</jdk.version>
+    <jdk.version>21</jdk.version>
 
-    <vaadin-v14.version>14.3.3</vaadin-v14.version>
-    <vaadin-testbench-v14.version>6.2.1</vaadin-testbench-v14.version>
-
-    <vaadin-productionMode>false</vaadin-productionMode>
-    <vaadin-install-nodejs>false</vaadin-install-nodejs>
-    <frontend-maven-plugin.nodeVersion>v13.11.0</frontend-maven-plugin.nodeVersion>
-    <frontend-maven-plugin.npmRegistryURL>http://jfrog-repo.sven-ruppert.de:8081/artifactory/api/npm/npm/
-    </frontend-maven-plugin.npmRegistryURL>
-    <frontend-maven-plugin.nodeDownloadRoot>${frontend-maven-plugin.npmRegistryURL}dist/
-    </frontend-maven-plugin.nodeDownloadRoot>
+    <vaadin-vXX.version>24.6.0</vaadin-vXX.version>
+    <vaadin-testbench-vXX.version>9.3.7</vaadin-testbench-vXX.version>
   </properties>
-
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>libs-release</name>
-      <!--      <url>${deploy-repo-url}</url>-->
-      <url>http://jfrog-repo.sven-ruppert.de:8081/artifactory/libs-release</url>
-    </repository>
-    <repository>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <id>snapshots</id>
-      <name>libs-snapshot</name>
-      <url>http://jfrog-repo.sven-ruppert.de:8081/artifactory/libs-snapshot</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>libs-release</name>
-      <url>http://jfrog-repo.sven-ruppert.de:8081/artifactory/libs-release</url>
-      <!--      <url>${deploy-repo-url}</url>-->
-    </pluginRepository>
-    <pluginRepository>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-      <id>snapshots</id>
-      <name>libs-snapshot</name>
-      <url>http://jfrog-repo.sven-ruppert.de:8081/artifactory/libs-snapshot</url>
-    </pluginRepository>
-  </pluginRepositories>
 
   <dependencyManagement>
     <dependencies>
@@ -138,7 +88,7 @@
       <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-bom</artifactId>
-        <version>20.0.6</version>
+        <version>${vaadin-vXX.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -146,7 +96,7 @@
       <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-testbench</artifactId>
-        <version>18.0.1</version>
+        <version>${vaadin-vXX.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -162,7 +112,7 @@
       <dependency>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-testbench-core</artifactId>
-        <version>6.4.0</version>
+        <version>${vaadin-testbench-vXX.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -175,55 +125,20 @@
         </exclusions>
         <scope>test</scope>
       </dependency>
-
       <!--      Vaadin Addons-->
-      <dependency>
-        <groupId>com.github.appreciated</groupId>
-        <artifactId>vaadin-css-grid</artifactId>
-        <version>2.0.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-core</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>com.github.appreciated</groupId>
-        <artifactId>app-layout-addon</artifactId>
-        <version>4.0.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-core</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>com.github.appreciated</groupId>
-        <artifactId>apexcharts</artifactId>
-        <version>2.0.0.beta7</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-core</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>org.rapidpm</groupId>
-      <artifactId>rapidpm-functional-reactive</artifactId>
-      <version>01.00.07-146</version>
+      <groupId>com.svenruppert</groupId>
+      <artifactId>functional-reactive</artifactId>
+      <version>03.00.00</version>
     </dependency>
     <dependency>
-      <groupId>org.rapidpm</groupId>
-      <artifactId>rapidpm-logger-adapter</artifactId>
-      <version>01.00.11-129</version>
+      <groupId>com.svenruppert</groupId>
+      <artifactId>core</artifactId>
+      <version>06.00.00</version>
     </dependency>
     <dependency>
       <groupId>com.vaadin</groupId>
@@ -253,12 +168,12 @@
         <plugin>
           <groupId>com.github.eirslett</groupId>
           <artifactId>frontend-maven-plugin</artifactId>
-          <version>1.10.0</version>
+          <version>1.15.1</version>
         </plugin>
         <plugin>
           <groupId>com.github.webdriverextensions</groupId>
           <artifactId>webdriverextensions-maven-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>4.0.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -266,7 +181,7 @@
       <plugin>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-maven-plugin</artifactId>
-        <version>${vaadin-v14.version}</version>
+        <version>24.6.0</version>
         <executions>
           <execution>
             <phase>test-compile</phase>
@@ -277,48 +192,21 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <configuration>
+          <licenseSets>
+            <licenseSet>
+              <excludes>
+                <exclude>**/README</exclude>
+                <exclude>src/main/frontend/**</exclude>
+              </excludes>
+            </licenseSet>
+          </licenseSets>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>vaadin-install-nodejs</id>
-      <activation>
-
-        <!--        <activeByDefault>false</activeByDefault>-->
-        <property>
-          <name>vaadin-install-nodejs</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <!-- optional: you don't really need execution ids, but it looks nice in your build log. -->
-                <id>install node and npm</id>
-                <goals>
-                  <goal>install-node-and-npm</goal>
-                </goals>
-                <!-- optional: default phase is "generate-resources" -->
-                <phase>generate-resources</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <npmRegistryURL>${frontend-maven-plugin.npmRegistryURL}</npmRegistryURL>
-              <nodeVersion>${frontend-maven-plugin.nodeVersion}</nodeVersion>
-              <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
-<!--              <npmVersion>${frontend-maven-plugin.npmVersion}</npmVersion>-->
-              <nodeDownloadRoot>${frontend-maven-plugin.npmRegistryURL}</nodeDownloadRoot>
-<!--              <installDirectory>${frontend-maven-plugin.installDirectory}</installDirectory>-->
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
 </project>
