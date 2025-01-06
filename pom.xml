@@ -201,7 +201,7 @@
             <licenseSet>
               <excludes>
                 <exclude>**/README</exclude>
-                <exclude>src/main/generated/**</exclude>
+                <exclude>src/main/frontend/**</exclude>
               </excludes>
             </licenseSet>
           </licenseSets>
