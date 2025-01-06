@@ -25,12 +25,12 @@
   <parent>
     <groupId>com.svenruppert</groupId>
     <artifactId>dependencies</artifactId>
-    <version>06.00.00</version>
+    <version>06.00.01</version>
   </parent>
 
   <artifactId>dependencies-for-flow</artifactId>
   <packaging>pom</packaging>
-  <version>06.00.00</version>
+  <version>06.00.01-SNAPSHOT</version>
 
   <inceptionYear>2018</inceptionYear>
   <organization>
@@ -132,14 +132,16 @@
   <dependencies>
     <dependency>
       <groupId>com.svenruppert</groupId>
-      <artifactId>functional-reactive</artifactId>
-      <version>03.00.00</version>
+      <artifactId>core</artifactId>
     </dependency>
     <dependency>
       <groupId>com.svenruppert</groupId>
-      <artifactId>core</artifactId>
-      <version>06.00.00</version>
+      <artifactId>functional-reactive</artifactId>
+      <version>03.00.00</version>
     </dependency>
+
+
+
     <dependency>
       <groupId>com.vaadin</groupId>
       <artifactId>flow-server</artifactId>
@@ -161,38 +163,22 @@
       <artifactId>flow-data</artifactId>
     </dependency>
   </dependencies>
+
+
   <build>
-    <pluginManagement>
-      <plugins>
-        <!--      WebDevelopment-->
-        <plugin>
-          <groupId>com.github.eirslett</groupId>
-          <artifactId>frontend-maven-plugin</artifactId>
-          <version>1.15.1</version>
-        </plugin>
-        <plugin>
-          <groupId>com.github.webdriverextensions</groupId>
-          <artifactId>webdriverextensions-maven-plugin</artifactId>
-          <version>4.0.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>com.vaadin</groupId>
         <artifactId>vaadin-maven-plugin</artifactId>
-        <version>24.6.0</version>
+        <version>${vaadin-vXX.version}</version>
         <executions>
           <execution>
-            <phase>test-compile</phase>
             <goals>
               <goal>prepare-frontend</goal>
-              <goal>build-frontend</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
@@ -208,5 +194,6 @@
         </configuration>
       </plugin>
     </plugins>
+
   </build>
 </project>
