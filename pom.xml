@@ -25,12 +25,12 @@
   <parent>
     <groupId>com.svenruppert</groupId>
     <artifactId>dependencies</artifactId>
-    <version>06.00.01</version>
+    <version>06.00.02</version>
   </parent>
 
   <artifactId>dependencies-for-flow</artifactId>
   <packaging>pom</packaging>
-  <version>06.00.01-SNAPSHOT</version>
+  <version>06.00.02</version>
 
   <inceptionYear>2018</inceptionYear>
   <organization>
@@ -78,7 +78,7 @@
     <!--technical-->
     <jdk.version>21</jdk.version>
 
-    <vaadin-vXX.version>24.6.0</vaadin-vXX.version>
+    <vaadin-vXX.version>24.6.2</vaadin-vXX.version>
     <vaadin-testbench-vXX.version>9.3.7</vaadin-testbench-vXX.version>
   </properties>
 
