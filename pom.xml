@@ -30,7 +30,7 @@
 
   <artifactId>dependencies-for-flow</artifactId>
   <packaging>pom</packaging>
-  <version>06.00.02</version>
+  <version>06.00.03-SNAPSHOT</version>
 
   <inceptionYear>2018</inceptionYear>
   <organization>
